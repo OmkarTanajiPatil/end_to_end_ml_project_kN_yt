@@ -58,12 +58,58 @@ class ModelTrainer:
                 "KNeighbors Regressor": KNeighborsRegressor(),
             }
             
+            params = {
+                "Linear Regression": {},
+                "Ridge": {"alpha": [0.1, 1.0, 10.0]},
+                "Lasso": {"alpha": [0.1, 1.0, 10.0]},
+                "Decision Tree": {
+                    'criterion': ['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    # 'splitter': ['best', 'random'],
+                    # 'max_depth': [3, 5, 10, None]
+                },
+                "Random Forest": {
+                    'n_estimators': [50, 100, 200],
+                    # 'criterion': ['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    # 'max_depth': [3, 5, 10, None]
+                },
+                "Gradient Boosting": {
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    'n_estimators': [100, 200, 300],
+                    'subsample': [0.6, 0.8, 1.0]
+                },
+                "XGBRegressor": {
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    'n_estimators': [100, 200, 300],
+                    'subsample': [0.6, 0.8, 1.0]
+                },
+                "CatBoosting Regressor": {
+                    'depth': [4, 6, 10],
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    'iterations': [100, 200, 300]
+                },
+                "AdaBoost Regressor": {
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    'n_estimators': [50, 100, 200]
+                },
+                "LGBM Regressor": {
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    'n_estimators': [100, 200, 300],
+                    'num_leaves': [20, 31, 50]
+                },
+                "KNeighbors Regressor": {
+                    'n_neighbors': [3, 5, 7, 9],
+                    'weights': ['uniform', 'distance'],
+                    'metric': ['euclidean', 'manhattan']
+                }
+            }
+            
             model_report : dict = evaluate_models(
                 X_train = X_train,
                 y_train = y_train,
                 X_test = X_test,
                 y_test = y_test,
-                models = models
+                models = models,
+                params = params
             )
             
             logging.info(f"Models being trained and Report is generated.")
@@ -77,7 +123,6 @@ class ModelTrainer:
             ]
             
             best_model = models[best_model_name]
-            
             
             if best_model_score < 0.6:
                 raise CustomException("No Best Model Found", sys)
