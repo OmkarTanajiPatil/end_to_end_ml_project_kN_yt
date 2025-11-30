@@ -10,6 +10,8 @@ from dataclasses import dataclass
 
 from data_transformation import DataTransformation
 
+from model_trainer import ModelTrainerConfig, ModelTrainer
+
 
 @dataclass # We can declare the class variables directly without using init
 class DataIngestionConfig:
@@ -52,6 +54,9 @@ if __name__ == '__main__':
     obj = DataIngestion()
     train_path, test_path = obj.initiate_data_ingestion()
     t = DataTransformation()
-    t.initiate_data_transformation(train_path, test_path)
+    train_arr, test_arr, preprocessor_obj_path = t.initiate_data_transformation(train_path, test_path)
+    m = ModelTrainer()
+    m.initiate_model_trainer(train_arr, test_arr)
+    
 
 

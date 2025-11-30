@@ -86,7 +86,7 @@ class DataTransformation:
             target_feature_test_df = test_df[target_column_name]
 
             logging.info(
-                f"Applying the preprocessing object in train and test dataframes."
+                "Applying the preprocessing object in train and test dataframes."
             )
 
             input_feature_train_arr = preprocessing_obj.fit_transform(
@@ -104,7 +104,7 @@ class DataTransformation:
                 obj=preprocessing_obj,
             )
 
-            logging.info("Saved the pkl file with filepath and object successfully!")
+            logging.info("Saved Preprocessing object!")
 
             return (
                 train_arr,
