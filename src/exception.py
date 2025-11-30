@@ -1,12 +1,11 @@
 import sys
-import logger
-import logging
+from src.logger import logging
 
 
 def error_message_detail(error, error_detail: sys):
     _, _, exc_tb = (
         error_detail.exc_info()
-    )  # exc_tb will store the information realted to file, which error, where it occurs and all
+    )  # exc_tb will store the information related to file, which error, where it occurs and all
     file_name = exc_tb.tb_frame.f_code.co_filename
     error_message = "\n -> File name: [{0}] \n -> Line number: [{1}] \n -> Error message: [{2}]".format(
         file_name, exc_tb.tb_lineno, str(error)
