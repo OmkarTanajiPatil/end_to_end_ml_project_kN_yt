@@ -10,7 +10,7 @@ from dataclasses import dataclass
 
 from data_transformation import DataTransformation
 
-from model_trainer import ModelTrainerConfig, ModelTrainer
+from model_trainer import ModelTrainer
 
 
 @dataclass # We can declare the class variables directly without using init

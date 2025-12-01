@@ -218,3 +218,6 @@ catboost_info/
 # Log Folder
 logs/*
 !logs/.gitkeep
+
+# Ruff Extensoin file
+ruff.toml
