@@ -1,0 +1,26 @@
+# Virtual env & git
+.venv/
+.git/
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ML generated files
+logs/
+artifacts/
+catboost_info/
+mlproject.egg-info/
+
+# Notebooks
+notebook/
+
+# Editor configs
+.vscode/
+.ebextensions/
+
+# OS files
+.DS_Store
