@@ -8,5 +8,6 @@ xgboost-cpu
 dill
 lightgbm
 flask
+uvicorn
 # -e .
 
