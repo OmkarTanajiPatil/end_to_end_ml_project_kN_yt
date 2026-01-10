@@ -9,4 +9,5 @@ RUN apt update -y && apt install awscli -y
 RUN pip install -r requirements.txt
 
 # For deployment on Render.com
-CMD ["gunicorn","app:app","--host","0.0.0.0","--port","10000"]
+CMD ["gunicorn","app:app","--bind","0.0.0.0:10000"]
+
