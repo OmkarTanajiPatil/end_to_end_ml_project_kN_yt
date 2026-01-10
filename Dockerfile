@@ -12,7 +12,7 @@ RUN apt update -y \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-COPY . /app/
+COPY . /app/ 
 
 EXPOSE 10000
 

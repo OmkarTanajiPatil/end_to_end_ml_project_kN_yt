@@ -212,7 +212,7 @@ __marimo__/
 
 # Catboost trainer
 notebook/catboost_info/
-artifacts/
+# artifacts/
 catboost_info/
 
 # Log Folder
