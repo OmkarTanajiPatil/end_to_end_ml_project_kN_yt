@@ -11,7 +11,7 @@ __pycache__/
 
 # ML generated files
 logs/
-artifacts/
+# artifacts/
 mlproject.egg-info/
 
 # Notebooks
